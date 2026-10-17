@@ -1,0 +1,192 @@
+/*
+ * Procedural "macro" material surfaces — pure CSS, no image assets.
+ * Each .surface--x approximates a close-up of the material under studio light.
+ */
+
+.surface--steel {
+  background:
+    repeating-linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0.05) 0 1px,
+      rgba(0, 0, 0, 0.06) 1px 2px,
+      transparent 2px 3px
+    ),
+    linear-gradient(
+      100deg,
+      #3d4145 0%,
+      #9aa0a6 18%,
+      #e6e9ec 26%,
+      #8c9196 36%,
+      #50555a 52%,
+      #b9bec3 68%,
+      #f1f3f5 74%,
+      #7d8287 86%,
+      #3f4347 100%
+    );
+}
+.surface--steel::after {
+  /* polished bevel between two brushed facets */
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 58%;
+  height: 7%;
+  background: linear-gradient(180deg, #1c1f22, #f8fafc 40%, #6d7378 100%);
+  box-shadow: 0 -1px 0 rgba(255, 255, 255, 0.4);
+}
+
+.surface--gold {
+  background:
+    radial-gradient(70% 50% at 30% 30%, rgba(255, 246, 220, 0.75), transparent 60%),
+    conic-gradient(
+      from 210deg at 65% 120%,
+      #5b4320,
+      #b18b4f,
+      #f3dfaf,
+      #c9a96e,
+      #7a5a2b,
+      #e8cf98,
+      #a5813f,
+      #5b4320
+    );
+}
+.surface--gold::after {
+  content: '';
+  position: absolute;
+  inset: 22% 18%;
+  border-radius: 50%;
+  background: radial-gradient(circle at 40% 35%, #fff4d6, #d9b878 30%, #8b6a34 70%, #4a3615);
+  box-shadow:
+    inset -8px -12px 30px rgba(0, 0, 0, 0.45),
+    0 30px 60px rgba(0, 0, 0, 0.5);
+  opacity: 0.85;
+}
+
+.surface--sapphire {
+  background:
+    linear-gradient(115deg, transparent 38%, rgba(255, 255, 255, 0.55) 44%, transparent 50%),
+    linear-gradient(115deg, transparent 52%, rgba(160, 200, 255, 0.18) 56%, transparent 62%),
+    radial-gradient(60% 60% at 50% 50%, #0d3428 0%, #061611 60%, #020605 100%);
+}
+.surface--sapphire::before {
+  /* the dial, seen through the crystal */
+  content: '';
+  position: absolute;
+  inset: 12% 26%;
+  border-radius: 50%;
+  background:
+    repeating-conic-gradient(from 0deg, rgba(255, 255, 255, 0.05) 0 2deg, transparent 2deg 4deg),
+    radial-gradient(circle, #1b5a43, #0a2a1f 70%);
+  box-shadow:
+    0 0 0 2px rgba(227, 209, 172, 0.5),
+    0 0 0 14px rgba(255, 255, 255, 0.03);
+}
+.surface--sapphire::after {
+  /* anti-reflective blue-violet bloom typical of AR coatings */
+  content: '';
+  position: absolute;
+  inset: 12% 26%;
+  border-radius: 50%;
+  background: radial-gradient(
+    40% 30% at 30% 25%,
+    rgba(150, 140, 255, 0.35),
+    rgba(120, 200, 255, 0.08) 60%,
+    transparent 70%
+  );
+}
+
+.surface--ceramic {
+  background: #04140e;
+}
+.surface--ceramic svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.surface--movement {
+  /* Côtes de Genève stripes on rhodium-plated bridges */
+  background:
+    repeating-linear-gradient(
+      -35deg,
+      #6c7177 0px,
+      #c7ccd1 10px,
+      #f1f3f5 15px,
+      #a6abb0 22px,
+      #5d6267 32px
+    );
+}
+.surface--movement::before {
+  /* gilt wheel with teeth */
+  content: '';
+  position: absolute;
+  width: 46%;
+  aspect-ratio: 1;
+  right: 8%;
+  top: 14%;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle, #8b1a22 0 6%, #3a2a12 6.5% 9%, transparent 9.5%),
+    radial-gradient(circle, transparent 0 30%, #d2ae66 31% 62%, transparent 63%),
+    repeating-conic-gradient(#e6c983 0 3deg, transparent 3deg 6deg);
+  -webkit-mask: radial-gradient(circle, #000 0 64%, transparent 64.5% 66%, #000 66.5% 70%, transparent 70.5%);
+  mask: radial-gradient(circle, #000 0 70%, transparent 70.5%);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+  filter: drop-shadow(0 10px 18px rgba(0, 0, 0, 0.6));
+}
+.surface--movement::after {
+  /* ruby jewel + blued screw */
+  content: '';
+  position: absolute;
+  width: 7%;
+  aspect-ratio: 1;
+  left: 22%;
+  top: 58%;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, #ff8a92, #a3121e 55%, #4a050b);
+  box-shadow:
+    0 0 0 6px #d9dde1,
+    90px -60px 0 -2px #1d2f6b,
+    90px -60px 0 4px #c9ced3;
+}
+
+.surface--straps {
+  background:
+    /* rubber */
+    linear-gradient(180deg, transparent 0 8%, #121212 8% 30%, transparent 30%),
+    /* leather */
+    linear-gradient(180deg, transparent 0 38%, #5a3519 38% 62%, transparent 62%),
+    /* metal links */
+    repeating-linear-gradient(90deg, #8e9398 0 2px, #dfe3e6 6px, #7b8085 22px, #2b2e31 24px),
+    #08090a;
+  -webkit-mask: linear-gradient(180deg, #000 0 30%, transparent 30% 38%, #000 38% 62%, transparent 62% 70%, #000 70% 92%, transparent 92%);
+  mask: linear-gradient(180deg, #000 0 30%, transparent 30% 38%, #000 38% 62%, transparent 62% 70%, #000 70% 92%, transparent 92%);
+}
+.surface--straps::before {
+  /* rubber ridges */
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 8%;
+  height: 22%;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.14), transparent 30%, rgba(0, 0, 0, 0.5)),
+    repeating-linear-gradient(90deg, transparent 0 24px, rgba(255, 255, 255, 0.06) 24px 26px);
+}
+.surface--straps::after {
+  /* leather grain + stitching */
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 38%;
+  height: 24%;
+  background:
+    repeating-linear-gradient(90deg, #e3d1ac 0 10px, transparent 10px 18px) 0 16% / 100% 1.5px no-repeat,
+    repeating-linear-gradient(90deg, #e3d1ac 0 10px, transparent 10px 18px) 0 84% / 100% 1.5px no-repeat,
+    radial-gradient(circle at 30% 40%, rgba(255, 220, 180, 0.08) 1px, transparent 2px) 0 0 / 7px 7px,
+    linear-gradient(180deg, rgba(255, 255, 255, 0.12), transparent 40%, rgba(0, 0, 0, 0.45));
+}
